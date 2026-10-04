@@ -103,3 +103,29 @@ legend{float:none;width:auto;padding:0 .5rem;font-size:1.25rem}
   height: auto;
   object-fit: cover;
 }
+
+.palace-box {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  border-radius: 8px;
+  background: linear-gradient(rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.88)), url('../images/member-bg.jpg') no-repeat center center;
+  background-size: 500px;
+  color: #222;
+  border: 1px solid #ccc;
+}
+
+.palace-box h3 {
+  color: var(--color-main);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.palace-box p {
+  font-size: 1.15rem;
+  margin: 0;
+}
+
+.palace-box img.slot {
+  border-radius: 6px;
+}
