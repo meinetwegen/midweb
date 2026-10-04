@@ -6,6 +6,7 @@
   --font-heading: "Bigelow Rules", cursive;
   --font-body: "Nanum Brush Script", cursive;
   --space:1rem;
+  font-size: 1.5rem;
 }
 
 .bigelow-rules-regular {
@@ -38,7 +39,7 @@ h1,h2,h3{font-family:var(--font-heading)}
 .section-alt{background:var(--color-alt)}
 .quote-box{margin:0;padding:var(--space);border-left:6px solid var(--color-accent);background:var(--color-alt)}
 .tab-box{border:1px solid #ccc;border-top:0}
-.table caption{caption-side:top}
+.table caption{caption-side:top; font-size:2rem; color:var(--color-main); text-align:center; margin-bottom:1rem}
 fieldset{border:1px solid #ccc;padding:1.5rem}
 legend{float:none;width:auto;padding:0 .5rem;font-size:1.25rem}
 
@@ -46,7 +47,7 @@ legend{float:none;width:auto;padding:0 .5rem;font-size:1.25rem}
 .footer-row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem}
 
 .roster{padding:2rem 1rem}
-.roster-heading{margin-bottom:1rem}
+.roster-heading{margin-bottom:1rem; font-size:4rem;}
 .roster-grid{display:grid;grid-template-columns:1fr;gap:var(--space);max-width:1200px;margin:0 auto}
 
 .member {
@@ -169,4 +170,9 @@ legend{float:none;width:auto;padding:0 .5rem;font-size:1.25rem}
   width: 100vw;
   height: 100vh;
   object-fit: cover;
+}
+
+.text-stroke-white {
+  color: var(--color-main);
+  -webkit-text-stroke: 0.003em #fff;
 }
