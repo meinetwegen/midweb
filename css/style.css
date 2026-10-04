@@ -1,6 +1,6 @@
 :root{
-  --color-main:#AB0000;
-  --color-accent:#0d6efd;
+  --color-main:#7e0505;
+  --color-accent:#ffffff;
   --color-bg:#220909;
   --color-alt:#e6e0e0;
   --font-heading: "Bigelow Rules", cursive;
@@ -128,4 +128,18 @@ legend{float:none;width:auto;padding:0 .5rem;font-size:1.25rem}
 
 .palace-box img.slot {
   border-radius: 6px;
+}
+
+.p5-link {
+  color: var(--color-main);
+  background: var(--color-accent);
+}
+
+.form-box{
+  background-color: #ffffff;
+}
+.btn-primary {
+  background-color: var(--color-main);
+  color: var(--color-accent);
+  border: none;
 }
