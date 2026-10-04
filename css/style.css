@@ -1,0 +1,33 @@
+:root{
+  --color-main:#222;
+  --color-accent:#0d6efd;
+  --color-bg:#fff;
+  --color-alt:#f2f2f2;
+  --font-heading: "Dela Gothic One", sans-serif;
+  --font-body: "Barlow Condensed", sans-serif;
+  --space:1rem;
+}
+body{font-family:var(--font-body);color:var(--color-main);background:var(--color-bg)}
+h1,h2,h3{font-family:var(--font-heading)}
+:focus-visible{outline:3px solid var(--color-accent);outline-offset:2px}
+
+.site-nav{background:var(--color-main)}
+.site-nav .navbar-brand,.site-nav .nav-link{color:var(--color-bg)}
+.site-nav .nav-link:hover,.site-nav .nav-link.active{color:var(--color-accent)}
+.hero,.page-title{padding:3rem 0;background:var(--color-alt)}
+.section-alt{background:var(--color-alt)}
+.quote-box{margin:0;padding:var(--space);border-left:6px solid var(--color-accent);background:var(--color-alt)}
+.tab-box{border:1px solid #ccc;border-top:0}
+.table caption{caption-side:top}
+fieldset{border:1px solid #ccc;padding:1.5rem}
+legend{float:none;width:auto;padding:0 .5rem;font-size:1.25rem}
+
+.site-footer{padding:1rem 0;background:var(--color-main);color:var(--color-bg)}
+.footer-row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem}
+
+.roster{padding:2rem 1rem}
+.roster-heading{margin-bottom:1rem}
+.roster-grid{display:grid;grid-template-columns:1fr;gap:var(--space);max-width:1200px;margin:0 auto}
+.member{padding:var(--space);background:var(--color-alt)}
+.member h3{font-size:1.1rem;margin:.6rem 0 .3rem}
+.member p{margin:0}
