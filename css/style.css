@@ -143,3 +143,26 @@ legend{float:none;width:auto;padding:0 .5rem;font-size:1.25rem}
   color: var(--color-accent);
   border: none;
 }
+
+.nav-tabs .nav-link {
+  color: var(--color-main);
+}
+
+.nav-tabs .nav-link.active {
+  color: var(--color-bg);
+}
+
+.gif-overlay{
+  position:fixed;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(0,0,0,.85);
+  opacity:0;
+  visibility:hidden;
+  transition:opacity .3s, visibility .3s;
+  z-index:2000;
+}
+.gif-overlay.show{opacity:1;visibility:visible}
+.gif-overlay img{max-width:90vw;max-height:90vh;object-fit:contain}
