@@ -75,8 +75,7 @@ legend{float:none;width:auto;padding:0 .5rem;font-size:1.25rem}
 .content-box {
   padding: 2rem;
   border-radius: 8px; 
-  background: linear-gradient(rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.88)), 
-              url('../images/member-bg.jpg') no-repeat center center;
+  background: linear-gradient(rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.88)), url('../images/member-bg.jpg') no-repeat center center;
   background-size: 500px;
   color: #222;
 }
