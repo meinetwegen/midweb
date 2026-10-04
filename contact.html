@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Phan-Site Request | Phantom Thieves</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;1,900&family=Dela+Gothic+One&display=swap" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+
+<header>
+  <nav class="navbar navbar-expand-md site-nav" aria-label="Main">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">TAKE YOUR HEART</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Toggle menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="team.html">Team</a></li>
+          <li class="nav-item"><a class="nav-link" href="heists.html">Details</a></li>
+          <li class="nav-item"><a class="nav-link active" href="contact.html" aria-current="page">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+<main>
+  <section class="page-title">
+    <div class="container">
+      <h1>PHAN-SITE TARGET SUBMISSION</h1>
+      <p class="lead">Is there a corrupt adult whose heart needs stealing?</p>
+    </div>
+  </section>
+
+  <section class="py-5">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-10 col-lg-8">
+          <form action="#" method="get" class="p5-form-box">
+            <fieldset>
+              <legend class="section-heading">REQUEST A CHANGE OF HEART</legend>
+              <div class="mb-3">
+                <label class="form-label p5-label" for="name">Target Name / Alias</label>
+                <input class="form-control p5-input" type="text" id="name" name="name" placeholder="e.g. Suguru Kamoshida, Junya Kaneshiro" required>
+              </div>
+              <div class="mb-3">
+                <label class="form-label p5-label" for="email">Informant Email Address</label>
+                <input class="form-control p5-input" type="email" id="email" name="email" placeholder="joker@metaverse.jp" required>
+              </div>
+              <div class="row">
+                <div class="col-6 mb-3">
+                  <label class="form-label p5-label" for="age">Target Age</label>
+                  <input class="form-control p5-input" type="number" id="age" name="age" min="1" max="99" placeholder="42">
+                </div>
+                <div class="col-6 mb-3">
+                  <label class="form-label p5-label" for="date">Incident Date</label>
+                  <input class="form-control p5-input" type="date" id="date" name="date">
+                </div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label p5-label" for="color">Palace Aura Color</label>
+                <input class="form-control form-control-color p5-color-input" type="color" id="color" name="color" value="#e60012">
+              </div>
+              <p class="mb-1 p5-label">Target's Primary Crime</p>
+              <div class="mb-3 p5-radio-group">
+                <input type="radio" id="o1" name="opt" value="1" checked> 
+                <label for="o1" class="me-3">Abuse</label>
+                <input type="radio" id="o2" name="opt" value="2"> 
+                <label for="o2" class="me-3">Theft</label>
+                <input type="radio" id="o3" name="opt" value="3"> 
+                <label for="o3">Extortion</label>
+              </div>
+              <div class="mb-3">
+                <label class="form-label p5-label" for="msg">Evidence & Details</label>
+                <textarea class="form-control p5-input" id="msg" name="msg" rows="4" maxlength="200" placeholder="Describe their corrupt actions and the harm caused..."></textarea>
+              </div>
+              <div class="mb-4">
+                <input type="checkbox" id="agree" name="agree" required> 
+                <label for="agree" class="ms-1 p5-check-label">I swear this report is true and I accept the risk of calling the Phantom Thieves.</label>
+              </div>
+              <button type="submit" class="btn btn-p5">SUBMIT TARGET INTEL</button>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="site-footer">
+  <div class="container footer-row">
+    <p class="mb-0">[Midterm: Alexandra, Zhannel]</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
