@@ -26,29 +26,44 @@
 
 <section class="roster" aria-labelledby="roster-h">
   <h2 id="roster-h" class="roster-heading text-stroke-white">Roster</h2>
-  <div class="roster-grid">
-    <article class="member"><img class="slot slot-1x1" src="images/joker.jpg" alt="Portrait of Joker"> 
-      <h3>Joker</h3><p>The leader. A wild card who can use many Personas.</p></article>
-    <article class="member"><img class="slot slot-1x1" src="images/skull.jpg" alt="Portrait of Skull"> 
-      <h3>Skull</h3><p>Loud and loyal, always the first to charge in.</p></article>
-    <article class="member"><img class="slot slot-1x1" src="images/mona.jpg" alt="Portrait of Mona"> 
-      <h3>Mona</h3><p>A talking cat who knows the secrets of the Metaverse.</p></article>
-    <article class="member"><img class="slot slot-1x1" src="images/panther.jpg" alt="Portrait of Panther"> 
-      <h3>Panther</h3><p>A model with a fiery temper and a strong sense of justice.</p></article>
-    <article class="member"><img class="slot slot-1x1" src="images/fox.jpg" alt="Portrait of Fox"> 
-      <h3>Fox</h3><p>An artist who sees beauty in everything around him.</p></article>
-    <article class="member"><img class="slot slot-1x1" src="images/queen.jpg" alt="Portrait of Queen">
-      <h3>Queen</h3><p>The student council president and the team's strategist.</p></article>
-    <article class="member"><img class="slot slot-1x1" src="images/oracle.jpg" alt="Portrait of Oracle"> 
-      <h3>Oracle</h3><p>A genius hacker who guides the team from far away.</p></article>
-    <article class="member"><img class="slot slot-1x1" src="images/noir.jpg" alt="Portrait of Noir"> 
-      <h3>Noir</h3><p>A gentle gardener who fights with a sharp axe.</p></article>
+  <div class="team-tools content-box" role="search">
+    <div class="row g-3 align-items-end">
+      <div class="col-12 col-md-5">
+        <label class="form-label p5-label" for="member-search">Search thieves</label>
+        <input class="form-control p5-input" type="search" id="member-search" placeholder="Name, Persona or Arcana" autocomplete="off">
+      </div>
+      <div class="col-12 col-md-4">
+        <label class="form-label p5-label" for="member-sort">Sort by</label>
+        <select class="form-select p5-input" id="member-sort">
+          <option value="name">Codename A to Z</option>
+          <option value="threat">Threat level, high to low</option>
+          <option value="persona">Persona A to Z</option>
+        </select>
+      </div>
+      <div class="col-12 col-md-3">
+        <button type="button" class="btn btn-outline-secondary w-100" id="member-reset">Clear filters</button>
+      </div>
+      <div class="col-12">
+        <div class="filter-group" role="group" aria-label="Filter by role" id="role-filters">
+          <button type="button" class="filter-btn active" data-role="All" aria-pressed="true">All</button>
+          <button type="button" class="filter-btn" data-role="Leader" aria-pressed="false">Leader</button>
+          <button type="button" class="filter-btn" data-role="Fighter" aria-pressed="false">Fighter</button>
+          <button type="button" class="filter-btn" data-role="Support" aria-pressed="false">Support</button>
+        </div>
+      </div>
+    </div>
+    <p class="team-count mb-0" id="team-count" aria-live="polite"></p>
+  </div>
+  <div class="roster-grid" id="roster-grid"></div>
+  <div class="empty-state" id="team-empty" hidden>
+    <h3>No thief found</h3>
+    <p id="team-empty-text">Nobody matches your search.</p>
   </div>
 </section>
 
 <section class="py-5">
   <div class="container">
-    <div class="table-responsive">
+    <div class="table-responsive table-box">
       <table class="table">
         <caption class="table-caption">Codenames, real names, Personas and Arcana of the eight core members</caption>
         <thead><tr><th scope="col">Codename</th><th scope="col">Real name</th><th scope="col">Persona</th><th scope="col">Arcana</th></tr></thead>
@@ -67,10 +82,65 @@
     </div>
   </div>
 </section>
+
+<section class="py-5 section-alt" id="vote" aria-labelledby="poll-h">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-10 col-lg-8">
+        <h2 id="poll-h">Vote for your favourite thief</h2>
+        <div class="success-box" id="poll-success" role="status" hidden></div>
+        <form class="form-box" id="poll-form" novalidate>
+          <div class="mb-3">
+            <label class="form-label p5-label" for="poll-name">Your name</label>
+            <input class="form-control p5-input" type="text" id="poll-name" name="name" placeholder="e.g. Haru" autocomplete="name" aria-describedby="poll-name-error">
+            <div class="invalid-feedback" id="poll-name-error"></div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label p5-label" for="poll-email">Email</label>
+            <input class="form-control p5-input" type="email" id="poll-email" name="email" placeholder="fan@example.com" autocomplete="email" aria-describedby="poll-email-error">
+            <div class="invalid-feedback" id="poll-email-error"></div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label p5-label" for="poll-thief">Favourite thief</label>
+            <select class="form-select p5-input" id="poll-thief" name="thief" aria-describedby="poll-thief-error">
+              <option value="">Choose a thief</option>
+            </select>
+            <div class="invalid-feedback" id="poll-thief-error"></div>
+          </div>
+          <div class="row">
+            <div class="col-12 col-sm-6 mb-3">
+              <label class="form-label p5-label" for="poll-rating">Rating from 1 to 10</label>
+              <input class="form-control p5-input" type="number" id="poll-rating" name="rating" min="1" max="10" placeholder="10" aria-describedby="poll-rating-error">
+              <div class="invalid-feedback" id="poll-rating-error"></div>
+            </div>
+            <div class="col-12 col-sm-6 mb-3">
+              <label class="form-label p5-label" for="poll-date">Date you started playing</label>
+              <input class="form-control p5-input" type="date" id="poll-date" name="date" aria-describedby="poll-date-error">
+              <div class="invalid-feedback" id="poll-date-error"></div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label p5-label" for="poll-comment">Why this thief? (optional)</label>
+            <textarea class="form-control p5-input" id="poll-comment" name="comment" rows="3" maxlength="200" placeholder="Tell us what you like about them" aria-describedby="poll-comment-error"></textarea>
+            <div class="invalid-feedback" id="poll-comment-error"></div>
+          </div>
+          <div class="form-check mb-4">
+            <input class="form-check-input" type="checkbox" id="poll-agree" name="agree" aria-describedby="poll-agree-error">
+            <label class="form-check-label p5-check-label" for="poll-agree">I vote once and I accept that the result is only for fun.</label>
+            <div class="invalid-feedback" id="poll-agree-error"></div>
+          </div>
+          <button type="submit" class="btn btn-p5">CAST MY VOTE</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
 </main>
 <footer class="site-footer"><div class="container footer-row"><p class="mb-0">Phantom Thieves fan site, 2026</p><p class="mb-0">Made by Alexandra and Zhannel</p></div></footer>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="js/main.js"></script>
+<script src="js/validation.js"></script>
+<script src="js/team.js"></script>
 </body>
 </html>
