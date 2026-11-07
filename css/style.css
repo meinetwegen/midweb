@@ -512,3 +512,27 @@ fieldset legend.section-heading{font-size:1.8rem;color:var(--color-main)}
 @media (max-width:767.98px){
   .theme-toggle{margin:.5rem 0}
 }
+
+.fankit-lead{margin-bottom:1rem;font-size:1.4rem;color:var(--color-bg)}
+.fankit-grid{display:grid;grid-template-columns:1fr;gap:1rem}
+.fankit-card{
+  display:flex;
+  flex-direction:column;
+  padding:1rem;
+  border:3px solid var(--color-main);
+  border-radius:8px;
+  background:var(--color-accent);
+  color:#222;
+  transition:transform .3s ease, box-shadow .3s ease;
+}
+.fankit-card:hover{transform:translateY(-5px) rotate(-1deg);box-shadow:8px 8px 0 var(--color-main)}
+.fankit-card h3{margin-top:.75rem;color:var(--color-main);font-size:1.5rem}
+.fankit-card p{margin-bottom:.75rem;font-size:1.2rem}
+.fankit-card .btn-p5{align-self:flex-start;margin-top:auto;text-decoration:none}
+
+@media (min-width:576px){
+  .fankit-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (min-width:992px){
+  .fankit-grid{grid-template-columns:repeat(4,1fr)}
+}
