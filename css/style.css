@@ -483,3 +483,32 @@ fieldset legend.section-heading{font-size:1.8rem;color:var(--color-main)}
   .content-box,.palace-box{padding:1.25rem}
   .roster-heading{font-size:3rem}
 }
+
+.theme-toggle{
+  margin-left:.5rem;
+  padding:.2rem 1rem;
+  border:2px solid var(--color-accent);
+  border-radius:999px;
+  background:transparent;
+  color:var(--color-accent);
+  font-family:var(--font-body);
+  font-size:1.3rem;
+  transition:background .3s ease, color .3s ease, transform .3s ease;
+}
+.theme-toggle:hover{background:var(--color-accent);color:var(--color-main);transform:rotate(-3deg)}
+
+[data-theme="school"] body{background:var(--color-alt)}
+[data-theme="school"] .site-nav{background:var(--color-accent);border-bottom:4px solid var(--color-main)}
+[data-theme="school"] .site-nav .navbar-brand,[data-theme="school"] .site-nav .nav-link{color:var(--color-main)}
+[data-theme="school"] .site-nav .nav-link:hover,[data-theme="school"] .site-nav .nav-link.active{color:var(--color-bg);border-bottom-color:var(--color-main)}
+[data-theme="school"] .site-nav .navbar-toggler{border-color:var(--color-main)}
+[data-theme="school"] .site-nav .navbar-toggler-icon{filter:none}
+[data-theme="school"] .theme-toggle{border-color:var(--color-main);color:var(--color-main)}
+[data-theme="school"] .theme-toggle:hover{background:var(--color-main);color:var(--color-accent)}
+[data-theme="school"] .hero,[data-theme="school"] .page-title,[data-theme="school"] .section-alt{background:var(--color-accent)}
+[data-theme="school"] .site-footer{background:var(--color-accent);color:var(--color-main);border-top:4px solid var(--color-main)}
+[data-theme="school"] .plate{border:2px solid var(--color-main)}
+
+@media (max-width:767.98px){
+  .theme-toggle{margin:.5rem 0}
+}

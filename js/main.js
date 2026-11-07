@@ -7,8 +7,46 @@ function revealOnScroll() {
   });
 }
 
+function readTheme() {
+  try {
+    return localStorage.getItem('p5-theme') || 'phantom';
+  } catch (e) {
+    return 'phantom';
+  }
+}
+
+function saveTheme(theme) {
+  try {
+    localStorage.setItem('p5-theme', theme);
+  } catch (e) {
+    return;
+  }
+}
+
+function applyTheme(theme) {
+  const next = theme === 'school' ? 'Phantom life' : 'School life';
+  document.documentElement.dataset.theme = theme;
+  $('#theme-toggle').text(next).attr('aria-label', 'Switch to ' + next.toLowerCase() + ' theme');
+}
+
 $(function () {
   $('html').addClass('js');
+
+  let switching = false;
+  applyTheme(readTheme());
+
+  $('#theme-toggle').on('click', function () {
+    if (switching) return;
+    switching = true;
+    const next = document.documentElement.dataset.theme === 'school' ? 'phantom' : 'school';
+    $('body').fadeTo(150, 0.3, function () {
+      applyTheme(next);
+      saveTheme(next);
+      $('body').fadeTo(250, 1, function () {
+        switching = false;
+      });
+    });
+  });
 
   $('a[href^="#"]').on('click', function (e) {
     const target = $(this.getAttribute('href'));
