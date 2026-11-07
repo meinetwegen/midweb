@@ -5,6 +5,7 @@
   --color-alt:#e6e0e0;
   --font-heading: "Kanit", sans-serif;
   --font-body: "Barlow", sans-serif;
+  --cut: min(2.5vw, 2.2rem);
   --space:1rem;
 }
 
@@ -537,3 +538,17 @@ fieldset legend.section-heading{font-size:1.8rem;color:var(--color-main)}
 
 .roster-heading.plate{display:table;margin:0 auto 1rem}
 .hero-caption{display:inline-block;margin-top:.5rem;padding:.4rem .9rem;border-left:6px solid var(--color-main);background:var(--color-accent);color:var(--color-main);font-size:1.05rem}
+
+.hero,.page-title{clip-path:polygon(0 0,100% 0,100% calc(100% - var(--cut)),0 100%)}
+.section-alt{position:relative;clip-path:polygon(0 var(--cut),100% 0,100% calc(100% - var(--cut)),0 100%)}
+.section-alt::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  height:calc(var(--cut) + .6rem);
+  background:var(--color-main);
+  clip-path:polygon(0 calc(100% - .6rem),100% 0,100% .6rem,0 100%);
+  pointer-events:none;
+}
