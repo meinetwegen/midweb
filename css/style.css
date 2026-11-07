@@ -28,12 +28,18 @@ body {
   background-size: cover;
 }
 
-h1,h2,h3{font-family:var(--font-heading);font-size: 2rem}
-:focus-visible{outline:3px solid var(--color-accent);outline-offset:2px}
+h1,h2,h3{font-family:var(--font-heading);font-size: 2rem;overflow-wrap:anywhere}
+h1{font-size:clamp(1.6rem,7vw,3rem)}
+img{max-width:100%}
+:focus-visible{outline:3px solid var(--color-accent);outline-offset:2px;box-shadow:0 0 0 6px var(--color-bg)}
 
 .site-nav{background:var(--color-main)}
-.site-nav .navbar-brand,.site-nav .nav-link{color:var(--color-bg)}
-.site-nav .nav-link:hover,.site-nav .nav-link.active{color:var(--color-accent)}
+.site-nav .navbar-brand,.site-nav .nav-link{color:var(--color-alt)}
+.site-nav .navbar-brand{font-family:var(--font-heading);font-size:1.5rem}
+.site-nav .nav-link{font-size:1.4rem;border-bottom:3px solid transparent;transition:color .3s,border-color .3s}
+.site-nav .nav-link:hover,.site-nav .nav-link.active{color:var(--color-accent);border-bottom-color:var(--color-accent)}
+.site-nav .navbar-toggler{border-color:var(--color-accent)}
+.site-nav .navbar-toggler-icon{filter:invert(1)}
 .hero,.page-title{padding:3rem 0;background:var(--color-alt)}
 .section-alt{background:var(--color-alt)}
 .quote-box{margin:0;padding:var(--space);border-left:6px solid var(--color-accent);background:var(--color-alt)}
@@ -42,7 +48,7 @@ h1,h2,h3{font-family:var(--font-heading);font-size: 2rem}
 fieldset{border:1px solid #ccc;padding:1.5rem}
 legend{float:none;width:auto;padding:0 .5rem;font-size:1.25rem}
 
-.site-footer{padding:1rem 0;background:var(--color-main);color:var(--color-bg)}
+.site-footer{padding:1rem 0;background:var(--color-main);color:var(--color-accent);font-size:1.3rem}
 .footer-row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem}
 
 .roster{padding:2rem 1rem}
@@ -194,3 +200,22 @@ legend{float:none;width:auto;padding:0 .5rem;font-size:1.25rem}
     box-shadow: 0 10px 25px rgba(75, 3, 3, 0.459);
     border-color: #fd0606;
 }
+
+.back-top{
+  position:fixed;
+  right:1rem;
+  bottom:1rem;
+  width:3rem;
+  height:3rem;
+  border:2px solid var(--color-accent);
+  border-radius:50%;
+  background:var(--color-main);
+  color:var(--color-accent);
+  font-size:1.5rem;
+  line-height:1;
+  z-index:1500;
+  transition:transform .3s ease, background .3s ease;
+}
+.back-top:hover{background:var(--color-bg);transform:translateY(-4px) rotate(-8deg)}
+
+.js .reveal{opacity:0}
