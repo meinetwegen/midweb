@@ -15,16 +15,23 @@ function isName(value) {
 
 function setError(field, message) {
   const error = document.getElementById(field.id + '-error');
+  const wasInvalid = field.classList.contains('is-invalid');
   field.classList.add('is-invalid');
   field.setAttribute('aria-invalid', 'true');
-  if (error) error.textContent = message;
+  if (error) {
+    error.textContent = message;
+    if (!wasInvalid) $(error).stop(true, true).hide().fadeIn(200);
+  }
 }
 
 function clearError(field) {
   const error = document.getElementById(field.id + '-error');
   field.classList.remove('is-invalid');
   field.removeAttribute('aria-invalid');
-  if (error) error.textContent = '';
+  if (error) {
+    error.textContent = '';
+    $(error).stop(true, true).css('display', '');
+  }
 }
 
 function checkField(field, rules) {
