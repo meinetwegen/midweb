@@ -1,25 +1,41 @@
-const btn = document.getElementById('meet-btn');
-const overlay = document.getElementById('gif-overlay');
-const gif = overlay.querySelector('img');
+function revealOnScroll() {
+  const bottom = $(window).scrollTop() + $(window).height();
+  $('.reveal').not('.revealed').each(function () {
+    if ($(this).offset().top < bottom - 40) {
+      $(this).addClass('revealed').fadeTo(600, 1);
+    }
+  });
+}
 
-const GIF_MS = 1500;
-let playing = false;
+$(function () {
+  $('html').addClass('js');
 
-btn.addEventListener('click', function (e) {
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  $('a[href^="#"]').on('click', function (e) {
+    const target = $(this.getAttribute('href'));
+    if (!target.length) return;
+    e.preventDefault();
+    $('html, body').stop(true).animate({ scrollTop: target.offset().top - 70 }, 600);
+    target.attr('tabindex', '-1')[0].focus({ preventScroll: true });
+  });
 
-  e.preventDefault();
-  if (playing) return;
-  playing = true;
+  const topBtn = $('<button type="button" class="back-top" aria-label="Back to top">&#8593;</button>').appendTo('body').hide();
+  let shown = false;
 
-  gif.src = 'media/1.gif?' + Date.now();
-  overlay.classList.add('show');
+  topBtn.on('click', function () {
+    $('html, body').stop(true).animate({ scrollTop: 0 }, 600);
+  });
 
-  setTimeout(function () {
-    overlay.classList.remove('show');
-  }, GIF_MS);
+  $(window).on('scroll', function () {
+    const past = $(window).scrollTop() > 300;
+    if (past && !shown) {
+      shown = true;
+      topBtn.stop(true, true).fadeIn(250);
+    } else if (!past && shown) {
+      shown = false;
+      topBtn.stop(true, true).fadeOut(250);
+    }
+    revealOnScroll();
+  });
 
-  setTimeout(function () {
-    window.location.href = btn.href;
-  }, GIF_MS + 300);
+  revealOnScroll();
 });
