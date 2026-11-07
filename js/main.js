@@ -3,11 +3,15 @@ const overlay = document.getElementById('gif-overlay');
 const gif = overlay.querySelector('img');
 
 const GIF_MS = 1500;
+let playing = false;
 
 btn.addEventListener('click', function (e) {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
   e.preventDefault();
+  if (playing) return;
+  playing = true;
+
   gif.src = 'media/1.gif?' + Date.now();
   overlay.classList.add('show');
 
