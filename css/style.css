@@ -476,3 +476,10 @@ fieldset legend.section-heading{font-size:1.8rem;color:var(--color-main)}
 .char-count{margin-top:.25rem;font-size:1.1rem;color:#555;text-align:right}
 .char-count.near-limit{color:#b00020;font-weight:bold}
 .calling-card{transform:rotate(-1deg);box-shadow:8px 8px 0 var(--color-main)}
+
+@media (max-width:575.98px){
+  fieldset{padding:1rem}
+  .form-box{padding:1rem}
+  .content-box,.palace-box{padding:1.25rem}
+  .roster-heading{font-size:3rem}
+}
