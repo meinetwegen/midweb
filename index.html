@@ -76,12 +76,30 @@
   </div>
 </section>
 
-<section class="py-5">
+<section class="py-5" id="quiz" aria-labelledby="quiz-h">
   <div class="container">
-    <h2>Wanna ask some questions?</h2>
-    <div class="accordion" id="faq">
-      <div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#q1" aria-expanded="true" aria-controls="q1">Who is Joker?</button></h3><div id="q1" class="accordion-collapse collapse show" data-bs-parent="#faq"><div class="accordion-body">Joker is the silent leader of the team and the main character of the game. His codename comes from his ability to switch between many Personas in battle.</div></div></div>
-      <div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q2" aria-expanded="false" aria-controls="q2">What is a Palace?</button></h3><div id="q2" class="accordion-collapse collapse" data-bs-parent="#faq"><div class="accordion-body">A Palace is a mental world shaped by one person's desires. Its ruler sees it as a castle, a museum or a bank, depending on how they see the world.</div></div></div>
+    <div class="quiz-box content-box reveal">
+      <h2 id="quiz-h">Thief Knowledge Quiz</h2>
+      <p class="quiz-status" id="quiz-status" aria-live="polite"></p>
+      <h3 class="h4 quiz-question" id="quiz-question" tabindex="-1"></h3>
+      <div class="quiz-options" id="quiz-options"></div>
+      <p class="quiz-feedback" id="quiz-feedback" role="status"></p>
+      <div class="quiz-actions">
+        <button type="button" class="btn btn-primary" id="quiz-next" disabled>Next question</button>
+        <button type="button" class="btn btn-outline-secondary" id="quiz-restart">Restart quiz</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5 section-alt" id="faq-section" aria-labelledby="faq-h">
+  <div class="container">
+    <h2 id="faq-h">Wanna ask some questions?</h2>
+    <div class="accordion faq" id="faq">
+      <div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button faq-btn" type="button" aria-expanded="true" aria-controls="q1">Who is Joker?</button></h3><div id="q1" class="faq-panel"><div class="accordion-body">Joker is the silent leader of the team and the main character of the game. His codename comes from his ability to switch between many Personas in battle.</div></div></div>
+      <div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button faq-btn collapsed" type="button" aria-expanded="false" aria-controls="q2">What is a Palace?</button></h3><div id="q2" class="faq-panel"><div class="accordion-body">A Palace is a mental world shaped by one person's desires. Its ruler sees it as a castle, a museum or a bank, depending on how they see the world.</div></div></div>
+      <div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button faq-btn collapsed" type="button" aria-expanded="false" aria-controls="q3">What is a calling card?</button></h3><div id="q3" class="faq-panel"><div class="accordion-body">A calling card is a message the team sends before a heist. It tells the target that their heart will be stolen and gives them time to feel the pressure.</div></div></div>
+      <div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button faq-btn collapsed" type="button" aria-expanded="false" aria-controls="q4">Do I need to play the game first?</button></h3><div id="q4" class="faq-panel"><div class="accordion-body">No. This site explains the team, the Palaces and the heist rules in a few minutes, and the quiz above checks what you remember.</div></div></div>
     </div>
   </div>
 </section>
