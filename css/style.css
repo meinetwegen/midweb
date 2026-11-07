@@ -85,7 +85,6 @@ legend{float:none;width:auto;padding:0 .5rem;font-size:1.05rem}
 }
 @media (min-width:1200px){
   .roster-grid{grid-template-columns:repeat(4,1fr)}
-  .roster-heading{text-align:center}
   .member img{max-width:100%}
 }
 
@@ -174,11 +173,6 @@ legend{float:none;width:auto;padding:0 .5rem;font-size:1.05rem}
   width: 100vw;
   height: 100vh;
   object-fit: cover;
-}
-
-.text-stroke-white {
-  color: var(--color-main);
-  -webkit-text-stroke: 0.003em #fff;
 }
 
 .btn {
@@ -540,3 +534,6 @@ fieldset legend.section-heading{font-size:1.8rem;color:var(--color-main)}
 
 .navbar-brand,.nav-tabs .nav-link,.faq .accordion-button,.btn-p5,.table-box .table thead th,.plan-total dd{font-weight:700;font-style:italic}
 .navbar-brand{text-transform:uppercase}
+
+.roster-heading.plate{display:table;margin:0 auto 1rem}
+.hero-caption{display:inline-block;margin-top:.5rem;padding:.4rem .9rem;border-left:6px solid var(--color-main);background:var(--color-accent);color:var(--color-main);font-size:1.05rem}
