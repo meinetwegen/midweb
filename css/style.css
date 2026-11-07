@@ -200,3 +200,38 @@ legend{float:none;width:auto;padding:0 .5rem;font-size:1.25rem}
     box-shadow: 0 10px 25px rgba(75, 3, 3, 0.459);
     border-color: #fd0606;
 }
+
+.p5-label{color:var(--color-main);font-size:1.3rem}
+.p5-input{
+  border:2px solid var(--color-main);
+  border-radius:4px;
+  color:#222;
+  font-size:1.2rem;
+  transition:border-color .3s, box-shadow .3s;
+}
+.p5-input:focus{border-color:var(--color-bg);box-shadow:0 0 0 4px var(--color-main);outline:3px solid var(--color-accent)}
+.p5-check-label{color:#222;font-size:1.2rem}
+.form-check-input{border:2px solid var(--color-main)}
+.form-check-input:checked{background-color:var(--color-main);border-color:var(--color-main)}
+.form-box{padding:1.5rem;border:3px solid var(--color-main);border-radius:8px}
+.btn-p5{
+  padding:.6rem 1.6rem;
+  border:2px solid var(--color-main);
+  border-radius:0;
+  background:var(--color-main);
+  color:var(--color-accent);
+  font-family:var(--font-heading);
+  font-size:1.3rem;
+  transform:skew(-8deg);
+  transition:transform .3s ease, background .3s ease, color .3s ease;
+}
+.btn-p5:hover,.btn-p5:focus-visible{background:var(--color-bg);color:var(--color-accent);transform:skew(-8deg) translateY(-3px)}
+.p5-note{padding:.75rem 1rem;border-left:6px solid var(--color-accent);background:var(--color-bg);font-size:1.3rem}
+.p5-link{display:inline-block;font-size:1.3rem;text-decoration:none;transition:background .3s, color .3s, transform .3s}
+.p5-link:hover,.p5-link:focus-visible{background:var(--color-main);color:var(--color-accent);transform:translateX(6px)}
+.p5-modal{border:3px solid var(--color-accent);border-radius:0;background:var(--color-bg);color:var(--color-accent);font-size:1.3rem}
+.p5-modal .modal-header{border-bottom:3px solid var(--color-main)}
+.p5-modal .modal-title{color:var(--color-accent)}
+.table-box{padding:1rem;background:var(--color-accent);border-radius:8px}
+.table-box .table{margin-bottom:0;font-size:1.3rem;color:#222}
+.table-box .table thead th{background:var(--color-main);color:var(--color-accent);font-family:var(--font-heading)}
