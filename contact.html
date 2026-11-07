@@ -43,47 +43,62 @@
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-12 col-md-10 col-lg-8">
-          <form action="#" method="get" class="form-box">
+          <div class="success-box calling-card" id="contact-success" role="status" hidden></div>
+          <form class="form-box" id="contact-form" novalidate>
             <fieldset>
               <legend class="section-heading">REQUEST A CHANGE OF HEART</legend>
               <div class="mb-3">
                 <label class="form-label p5-label" for="name">Target Name / Alias</label>
-                <input class="form-control p5-input" type="text" id="name" name="name" placeholder="e.g. Suguru Kamoshida, Junya Kaneshiro" required>
+                <input class="form-control p5-input" type="text" id="name" name="name" placeholder="e.g. Suguru Kamoshida, Junya Kaneshiro" aria-describedby="name-error">
+                <div class="invalid-feedback" id="name-error"></div>
               </div>
               <div class="mb-3">
                 <label class="form-label p5-label" for="email">Informant Email Address</label>
-                <input class="form-control p5-input" type="email" id="email" name="email" placeholder="joker@metaverse.jp" required>
+                <input class="form-control p5-input" type="email" id="email" name="email" placeholder="joker@metaverse.jp" autocomplete="email" aria-describedby="email-error">
+                <div class="invalid-feedback" id="email-error"></div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label p5-label" for="phone">Informant Phone (optional)</label>
+                <input class="form-control p5-input" type="tel" id="phone" name="phone" placeholder="+7 701 123 4567" autocomplete="tel" aria-describedby="phone-error">
+                <div class="invalid-feedback" id="phone-error"></div>
               </div>
               <div class="row">
-                <div class="col-6 mb-3">
+                <div class="col-12 col-sm-6 mb-3">
                   <label class="form-label p5-label" for="age">Target Age</label>
-                  <input class="form-control p5-input" type="number" id="age" name="age" min="1" max="99" placeholder="42">
+                  <input class="form-control p5-input" type="number" id="age" name="age" min="1" max="99" placeholder="42" aria-describedby="age-error">
+                  <div class="invalid-feedback" id="age-error"></div>
                 </div>
-                <div class="col-6 mb-3">
+                <div class="col-12 col-sm-6 mb-3">
                   <label class="form-label p5-label" for="date">Incident Date</label>
-                  <input class="form-control p5-input" type="date" id="date" name="date">
+                  <input class="form-control p5-input" type="date" id="date" name="date" aria-describedby="date-error">
+                  <div class="invalid-feedback" id="date-error"></div>
                 </div>
               </div>
               <div class="mb-3">
                 <label class="form-label p5-label" for="color">Palace Aura Color</label>
                 <input class="form-control form-control-color p5-color-input" type="color" id="color" name="color" value="#e60012">
               </div>
-              <p class="mb-1 p5-label">Target's Primary Crime</p>
-              <div class="mb-3 p5-radio-group">
-                <input type="radio" id="o1" name="opt" value="1" checked> 
-                <label for="o1" class="me-3">Abuse</label>
-                <input type="radio" id="o2" name="opt" value="2"> 
-                <label for="o2" class="me-3">Theft</label>
-                <input type="radio" id="o3" name="opt" value="3"> 
-                <label for="o3">Extortion</label>
-              </div>
+              <fieldset class="mb-3 radio-set">
+                <legend class="p5-label">Target's Primary Crime</legend>
+                <div class="p5-radio-group">
+                  <input type="radio" id="o1" name="opt" value="Abuse" checked>
+                  <label for="o1" class="me-3">Abuse</label>
+                  <input type="radio" id="o2" name="opt" value="Theft">
+                  <label for="o2" class="me-3">Theft</label>
+                  <input type="radio" id="o3" name="opt" value="Extortion">
+                  <label for="o3">Extortion</label>
+                </div>
+              </fieldset>
               <div class="mb-3">
-                <label class="form-label p5-label" for="msg">Evidence & Details</label>
-                <textarea class="form-control p5-input" id="msg" name="msg" rows="4" maxlength="200" placeholder="Describe their corrupt actions and the harm caused..."></textarea>
+                <label class="form-label p5-label" for="msg">Evidence &amp; Details</label>
+                <textarea class="form-control p5-input" id="msg" name="msg" rows="4" maxlength="200" placeholder="Describe their corrupt actions and the harm caused..." aria-describedby="msg-error msg-count"></textarea>
+                <div class="invalid-feedback" id="msg-error"></div>
+                <p class="char-count mb-0" id="msg-count">0 / 200</p>
               </div>
-              <div class="mb-4">
-                <input type="checkbox" id="agree" name="agree" required> 
-                <label for="agree" class="ms-1 p5-check-label">I swear this report is true and I accept the risk of calling the Phantom Thieves.</label>
+              <div class="form-check mb-4">
+                <input class="form-check-input" type="checkbox" id="agree" name="agree" aria-describedby="agree-error">
+                <label class="form-check-label p5-check-label" for="agree">I swear this report is true and I accept the risk of calling the Phantom Thieves.</label>
+                <div class="invalid-feedback" id="agree-error"></div>
               </div>
               <button type="submit" class="btn btn-p5">SUBMIT TARGET INTEL</button>
             </fieldset>
@@ -98,5 +113,7 @@
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="js/main.js"></script>
+<script src="js/validation.js"></script>
+<script src="js/contact.js"></script>
 </body>
 </html>
