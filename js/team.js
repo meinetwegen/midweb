@@ -61,6 +61,10 @@ function createCard(m) {
   meta.className = 'member-meta';
   meta.textContent = m.role + ' | Persona: ' + m.persona;
 
+  const threatLabel = document.createElement('p');
+  threatLabel.className = 'threat-label';
+  threatLabel.textContent = 'Threat level: ' + m.threat + ' / 10';
+
   const threat = document.createElement('div');
   threat.className = 'threat';
   threat.setAttribute('role', 'img');
@@ -70,7 +74,7 @@ function createCard(m) {
   bar.dataset.level = m.threat * 10;
   threat.appendChild(bar);
 
-  card.append(img, name, text, meta, threat);
+  card.append(img, name, text, meta, threatLabel, threat);
   return card;
 }
 

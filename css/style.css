@@ -339,7 +339,8 @@ legend{float:none;width:auto;padding:0 .5rem;font-size:1.35rem}
 .member{display:flex;flex-direction:column;transition:transform .3s ease, box-shadow .3s ease}
 .member:hover{transform:translateY(-5px);box-shadow:0 10px 25px rgba(0,0,0,.6)}
 .member-meta{margin-top:.4rem !important;color:var(--color-main)}
-.threat{height:.8rem;margin-top:.6rem;background:#ccc;border-radius:999px;overflow:hidden}
+.threat-label{margin-top:.4rem !important;color:var(--color-bg);font-size:1.35rem}
+.threat{height:.8rem;margin-top:.3rem;background:#ccc;border-radius:999px;overflow:hidden}
 .threat-bar{display:block;height:100%;background:var(--color-main)}
 
 .empty-state{max-width:600px;margin:0 auto;padding:2rem;border:3px dashed var(--color-accent);border-radius:8px;background:var(--color-alt);text-align:center}
