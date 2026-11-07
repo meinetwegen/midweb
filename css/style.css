@@ -49,7 +49,7 @@ legend{float:none;width:auto;padding:0 .5rem;font-size:1.05rem}
 
 .member {
   padding: var(--space);
-  background: linear-gradient(rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.88)), url('../images/member-bg.jpg') repeat center center;
+  background: linear-gradient(rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.88)), url('../images/member-bg.jpg') no-repeat center center;
   background-size: cover;
   color: #222;
 }
@@ -74,7 +74,7 @@ legend{float:none;width:auto;padding:0 .5rem;font-size:1.05rem}
   padding: 2rem;
   border-radius: 8px; 
   background: linear-gradient(rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.88)), url('../images/member-bg.jpg') no-repeat center center;
-  background-size: 500px;
+  background-size: cover;
   color: #222;
 }
 
@@ -108,7 +108,7 @@ legend{float:none;width:auto;padding:0 .5rem;font-size:1.05rem}
   padding: 2rem;
   border-radius: 8px;
   background: linear-gradient(rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.88)), url('../images/member-bg.jpg') no-repeat center center;
-  background-size: 500px;
+  background-size: cover;
   color: #222;
   border: 1px solid #ccc;
 }
