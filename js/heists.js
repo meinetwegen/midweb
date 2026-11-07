@@ -1,12 +1,12 @@
 const palaces = [
-  { id: 1, name: 'Kamoshida\'s Palace', ruler: 'Suguru Kamoshida', form: 'Castle', location: 'Shujin Academy', difficulty: 2, days: 5 },
-  { id: 2, name: 'Museum of Vanity', ruler: 'Ichiryusai Madarame', form: 'Museum', location: 'Traditional art district', difficulty: 3, days: 6 },
-  { id: 3, name: 'Bank of Gluttony', ruler: 'Junya Kaneshiro', form: 'Bank', location: 'Shibuya', difficulty: 3, days: 6 },
-  { id: 4, name: 'Pyramid of Wisdom', ruler: 'Futaba Sakura', form: 'Pyramid', location: 'Yongen-Jaya', difficulty: 3, days: 7 },
-  { id: 5, name: 'Spaceport of Greed', ruler: 'Kunikazu Okumura', form: 'Spaceport', location: 'Okumura Foods', difficulty: 4, days: 8 },
-  { id: 6, name: 'Casino Palace', ruler: 'Sae Niijima', form: 'Casino', location: 'Prosecutor\'s office', difficulty: 4, days: 8 },
-  { id: 7, name: 'Cruise Ship of Pride', ruler: 'Masayoshi Shido', form: 'Cruise ship', location: 'Tokyo Bay', difficulty: 5, days: 10 },
-  { id: 8, name: 'Mementos Depths', ruler: 'Public cognition', form: 'Underground tunnel', location: 'Shibuya Station', difficulty: 5, days: 12 }
+  { id: 1, name: 'Kamoshida\'s Palace', ruler: 'Suguru Kamoshida', form: 'Castle', location: 'Shujin Academy', difficulty: 2, days: 5, deadline: 'May 2' },
+  { id: 2, name: 'Museum of Vanity', ruler: 'Ichiryusai Madarame', form: 'Museum', location: 'Traditional art district', difficulty: 3, days: 6, deadline: 'June 5' },
+  { id: 3, name: 'Bank of Gluttony', ruler: 'Junya Kaneshiro', form: 'Bank', location: 'Shibuya', difficulty: 3, days: 6, deadline: 'July 9' },
+  { id: 4, name: 'Pyramid of Wisdom', ruler: 'Futaba Sakura', form: 'Pyramid', location: 'Yongen-Jaya', difficulty: 3, days: 7, deadline: 'August 21' },
+  { id: 5, name: 'Spaceport of Greed', ruler: 'Kunikazu Okumura', form: 'Spaceport', location: 'Okumura Foods', difficulty: 4, days: 8, deadline: 'October 11' },
+  { id: 6, name: 'Casino Palace', ruler: 'Sae Niijima', form: 'Casino', location: 'Prosecutor\'s office', difficulty: 4, days: 8, deadline: 'November 20' },
+  { id: 7, name: 'Cruise Ship of Pride', ruler: 'Masayoshi Shido', form: 'Cruise ship', location: 'Tokyo Bay', difficulty: 5, days: 10, deadline: 'December 18' },
+  { id: 8, name: 'Mementos Depths', ruler: 'Public cognition', form: 'Underground tunnel', location: 'Shibuya Station', difficulty: 5, days: 12, deadline: 'open all year' }
 ];
 
 const gallery = [
@@ -84,7 +84,7 @@ function createPalaceCard(p) {
 
   const days = document.createElement('p');
   days.className = 'palace-days';
-  days.textContent = 'Difficulty ' + p.difficulty + ' / 5 | ' + p.days + ' days to infiltrate';
+  days.textContent = 'Difficulty ' + p.difficulty + ' / 5 | ' + p.days + ' days to infiltrate | Deadline: ' + p.deadline;
 
   const button = document.createElement('button');
   button.type = 'button';
