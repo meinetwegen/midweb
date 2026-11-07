@@ -590,3 +590,17 @@ fieldset legend.section-heading{font-size:1.8rem;color:var(--color-main)}
 }
 .card:hover::before,.member:hover::before,.palace-card:hover::before,.fankit-card:hover::before{clip-path:polygon(0 0,100% 0,35% 100%,0 100%)}
 .card:hover::after,.member:hover::after,.palace-card:hover::after,.fankit-card:hover::after{opacity:1}
+
+.wipe{position:fixed;inset:0;z-index:3000;pointer-events:none;visibility:hidden}
+.wipe.on{visibility:visible}
+.wipe-dark,.wipe-red{
+  position:absolute;
+  inset:0;
+  clip-path:polygon(0 0,0 0,-20% 100%,0 100%);
+  transition:clip-path .45s ease-in;
+}
+.wipe-dark{background:var(--color-bg)}
+.wipe-red{background:var(--color-main);transition-delay:.08s}
+.wipe.cover .wipe-dark,.wipe.cover .wipe-red{clip-path:polygon(0 0,120% 0,100% 100%,0 100%)}
+.wipe.leave .wipe-dark,.wipe.leave .wipe-red{clip-path:polygon(120% 0,120% 0,100% 100%,120% 100%)}
+.wipe.no-anim .wipe-dark,.wipe.no-anim .wipe-red{transition:none}

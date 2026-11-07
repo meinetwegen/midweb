@@ -29,8 +29,75 @@ function applyTheme(theme) {
   $('#theme-toggle').text(next).attr('aria-label', 'Switch to ' + next.toLowerCase() + ' theme');
 }
 
+function canWipe(link, e) {
+  if (e.ctrlKey || e.metaKey || e.shiftKey || e.altKey || e.button !== 0) return false;
+  if (link.target === '_blank' || link.hasAttribute('download') || link.hasAttribute('data-no-wipe')) return false;
+  if (['http:', 'https:', 'file:'].indexOf(link.protocol) === -1) return false;
+  if (link.hostname !== window.location.hostname) return false;
+  return link.pathname !== window.location.pathname;
+}
+
+function readWipe() {
+  try {
+    return sessionStorage.getItem('p5-wipe') === '1';
+  } catch (err) {
+    return false;
+  }
+}
+
+function saveWipe(value) {
+  try {
+    if (value) {
+      sessionStorage.setItem('p5-wipe', '1');
+    } else {
+      sessionStorage.removeItem('p5-wipe');
+    }
+  } catch (err) {
+    return;
+  }
+}
+
 $(function () {
   $('html').addClass('js');
+
+  const wipe = $('<div class="wipe" aria-hidden="true"><div class="wipe-dark"></div><div class="wipe-red"></div></div>').appendTo('body');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let leaving = false;
+
+  if (readWipe() && !reduceMotion) {
+    saveWipe(false);
+    wipe.addClass('on cover no-anim');
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        wipe.removeClass('no-anim').addClass('leave');
+        setTimeout(function () {
+          wipe.removeClass('on cover leave');
+        }, 800);
+      });
+    });
+  }
+
+  $(window).on('pageshow', function (e) {
+    if (e.originalEvent.persisted) {
+      leaving = false;
+      wipe.removeClass('on cover leave no-anim');
+    }
+  });
+
+  $(document).on('click', 'a[href]', function (e) {
+    if (reduceMotion || !canWipe(this, e)) return;
+    e.preventDefault();
+    if (leaving) return;
+    leaving = true;
+    const url = this.href;
+    saveWipe(true);
+    wipe.addClass('on');
+    wipe[0].offsetWidth;
+    wipe.addClass('cover');
+    setTimeout(function () {
+      window.location.href = url;
+    }, 550);
+  });
 
   let switching = false;
   applyTheme(readTheme());
