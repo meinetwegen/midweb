@@ -107,7 +107,7 @@ function refreshButtons() {
   });
 }
 
-function renderPalaces() {
+function renderPalaces(animate) {
   const list = getVisiblePalaces();
 
   palaceGrid.innerHTML = '';
@@ -126,10 +126,15 @@ function renderPalaces() {
   }
 
   refreshButtons();
-  $('#palace-grid .palace-card').hide().fadeIn(300);
   $('#palace-grid .meter-fill').each(function () {
-    $(this).css('width', 0).animate({ width: $(this).data('level') + '%' }, 600);
+    const level = $(this).data('level') + '%';
+    if (animate === false) {
+      $(this).css('width', level);
+    } else {
+      $(this).css('width', 0).animate({ width: level }, 600);
+    }
   });
+  if (animate !== false) $('#palace-grid .palace-card').hide().fadeIn(300);
 }
 
 function findPalace(id) {
@@ -196,7 +201,9 @@ function togglePlan(id) {
   refreshButtons();
 }
 
-palaceSearch.addEventListener('input', renderPalaces);
+palaceSearch.addEventListener('input', function () {
+  renderPalaces(false);
+});
 palaceLevel.addEventListener('change', renderPalaces);
 palaceSort.addEventListener('change', renderPalaces);
 
@@ -231,7 +238,7 @@ gallery.forEach(function (g, index) {
   thumb.setAttribute('aria-label', 'Open ' + g.title);
 
   const img = document.createElement('img');
-  img.className = 'slot slot-16x9';
+  img.className = 'slot';
   img.src = g.src;
   img.alt = g.alt;
   img.loading = 'lazy';

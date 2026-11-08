@@ -47,7 +47,6 @@ img{max-width:100%}
 .hero,.page-title{padding:3rem 0;background:var(--color-alt)}
 .section-alt{background:var(--color-alt)}
 .quote-box{margin:0;padding:var(--space);border-left:6px solid var(--color-accent);background:var(--color-alt)}
-.tab-box{border:1px solid #ccc;border-top:0}
 .table caption{caption-side:top; font-size:1.5rem; color:var(--color-main); text-align:center; margin-bottom:1rem}
 fieldset{border:1px solid #ccc;padding:1.5rem}
 legend{float:none;width:auto;padding:0 .5rem;font-size:1.05rem}
@@ -102,12 +101,6 @@ legend{float:none;width:auto;padding:0 .5rem;font-size:1.05rem}
 
 .slot {
   display: block;
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-}
-
-.slot-4x3 {
   width: 100%;
   height: auto;
   object-fit: cover;
@@ -196,11 +189,11 @@ legend{float:none;width:auto;padding:0 .5rem;font-size:1.05rem}
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
-.card, .vet-card {
+.card {
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-.card:hover, .vet-card:hover {
+.card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 25px rgba(75, 3, 3, 0.459);
     border-color: #fd0606;
@@ -591,16 +584,33 @@ fieldset legend.section-heading{font-size:1.8rem;color:var(--color-main)}
 .card:hover::before,.member:hover::before,.palace-card:hover::before,.fankit-card:hover::before{clip-path:polygon(0 0,100% 0,35% 100%,0 100%)}
 .card:hover::after,.member:hover::after,.palace-card:hover::after,.fankit-card:hover::after{opacity:1}
 
-.wipe{position:fixed;inset:0;z-index:3000;pointer-events:none;visibility:hidden}
+.wipe{position:fixed;inset:0;z-index:3000;pointer-events:none;visibility:hidden;overflow:hidden}
 .wipe.on{visibility:visible}
 .wipe-dark,.wipe-red{
   position:absolute;
-  inset:0;
-  clip-path:polygon(0 0,0 0,-20% 100%,0 100%);
-  transition:clip-path .45s ease-in;
+  top:0;
+  bottom:0;
+  left:-200px;
+  width:calc(100% + 400px);
+  transform:translateX(-110%) skewX(-18deg);
+  will-change:transform;
+  transition:transform .7s cubic-bezier(.6,0,.3,1);
 }
 .wipe-dark{background:var(--color-bg)}
-.wipe-red{background:var(--color-main);transition-delay:.08s}
-.wipe.cover .wipe-dark,.wipe.cover .wipe-red{clip-path:polygon(0 0,120% 0,100% 100%,0 100%)}
-.wipe.leave .wipe-dark,.wipe.leave .wipe-red{clip-path:polygon(120% 0,120% 0,100% 100%,120% 100%)}
+.wipe-red{background:var(--color-main);transition-delay:.1s}
+.wipe.cover .wipe-dark,.wipe.cover .wipe-red{transform:translateX(0) skewX(-18deg)}
+.wipe.leave .wipe-dark,.wipe.leave .wipe-red{transform:translateX(110%) skewX(-18deg)}
 .wipe.no-anim .wipe-dark,.wipe.no-anim .wipe-red{transition:none}
+
+.footer-credits{margin-top:.6rem;padding-top:.6rem;border-top:1px solid currentColor;font-size:1rem}
+
+html.wipe-in::after{content:"";position:fixed;inset:0;z-index:3000;background:var(--color-main)}
+[data-theme="school"] .wipe-dark{background:var(--color-accent)}
+
+.poll-results{margin-bottom:1.5rem;padding:1.25rem;border:3px solid var(--color-bg);border-radius:8px;background:var(--color-alt);color:#222}
+.poll-results[hidden]{display:none}
+.poll-results h3{color:var(--color-main)}
+.poll-list{margin:0;padding:0;list-style:none}
+.poll-list li{margin-bottom:.7rem;font-size:1.1rem}
+.poll-bar{height:.8rem;margin-top:.25rem;background:#ccc;border-radius:999px;overflow:hidden}
+.poll-bar span{display:block;height:100%;background:var(--color-main);transition:width .4s ease}

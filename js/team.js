@@ -46,7 +46,7 @@ function createCard(m) {
   card.className = 'member';
 
   const img = document.createElement('img');
-  img.className = 'slot slot-1x1';
+  img.className = 'slot';
   img.src = m.image;
   img.alt = 'Portrait of ' + m.codename;
   img.loading = 'lazy';
@@ -78,7 +78,7 @@ function createCard(m) {
   return card;
 }
 
-function render() {
+function render(animate) {
   const list = getVisibleMembers();
   let total = 0;
 
@@ -99,13 +99,20 @@ function render() {
     countText.textContent = 'Showing ' + list.length + ' of ' + members.length + ' thieves | Average threat level: ' + average + ' / 10';
   }
 
-  $('#roster-grid .member').hide().fadeIn(300);
   $('#roster-grid .threat-bar').each(function () {
-    $(this).css('width', 0).animate({ width: $(this).data('level') + '%' }, 600);
+    const level = $(this).data('level') + '%';
+    if (animate === false) {
+      $(this).css('width', level);
+    } else {
+      $(this).css('width', 0).animate({ width: level }, 600);
+    }
   });
+  if (animate !== false) $('#roster-grid .member').hide().fadeIn(300);
 }
 
-searchInput.addEventListener('input', render);
+searchInput.addEventListener('input', function () {
+  render(false);
+});
 sortSelect.addEventListener('change', render);
 
 filterButtons.forEach(function (button) {
@@ -139,6 +146,8 @@ const pollForm = document.getElementById('poll-form');
 const pollSuccess = document.getElementById('poll-success');
 const thiefSelect = document.getElementById('poll-thief');
 const dateInput = document.getElementById('poll-date');
+const pollResults = document.getElementById('poll-results');
+const pollResultsList = document.getElementById('poll-results-list');
 const votes = {};
 let totalVotes = 0;
 
@@ -192,6 +201,34 @@ const pollRules = {
   }
 };
 
+function renderResults() {
+  const sorted = members.slice().sort(function (a, b) {
+    return votes[b.codename] - votes[a.codename] || a.codename.localeCompare(b.codename);
+  });
+
+  pollResultsList.innerHTML = '';
+  sorted.forEach(function (m) {
+    const count = votes[m.codename];
+    if (!count) return;
+    const percent = Math.round((count / totalVotes) * 100);
+
+    const item = document.createElement('li');
+    const label = document.createElement('span');
+    label.textContent = m.codename + ': ' + count + (count === 1 ? ' vote' : ' votes') + ' (' + percent + '%)';
+    const track = document.createElement('div');
+    track.className = 'poll-bar';
+    track.setAttribute('role', 'img');
+    track.setAttribute('aria-label', m.codename + ' has ' + percent + ' percent of the votes');
+    const fill = document.createElement('span');
+    fill.style.width = percent + '%';
+    track.appendChild(fill);
+    item.append(label, track);
+    pollResultsList.appendChild(item);
+  });
+
+  if (pollResults.hidden) $(pollResults).prop('hidden', false).hide().slideDown(250);
+}
+
 watchForm(pollForm, pollRules);
 
 pollForm.addEventListener('input', function () {
@@ -211,5 +248,6 @@ pollForm.addEventListener('submit', function (e) {
 
   pollSuccess.textContent = 'Thanks, ' + name + '! Your vote for ' + thief + ' is counted. ' + thief + ' has ' + votes[thief] + ' of ' + totalVotes + ' votes in this session.';
   resetForm(pollForm);
+  renderResults();
   $(pollSuccess).hide().prop('hidden', false).slideDown(300);
 });

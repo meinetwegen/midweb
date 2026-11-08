@@ -67,15 +67,30 @@ $(function () {
   if (readWipe() && !reduceMotion) {
     saveWipe(false);
     wipe.addClass('on cover no-anim');
-    requestAnimationFrame(function () {
+
+    let revealed = false;
+    const reveal = function () {
+      if (revealed) return;
+      revealed = true;
       requestAnimationFrame(function () {
-        wipe.removeClass('no-anim').addClass('leave');
-        setTimeout(function () {
-          wipe.removeClass('on cover leave');
-        }, 800);
+        requestAnimationFrame(function () {
+          wipe.removeClass('no-anim').addClass('leave');
+          setTimeout(function () {
+            wipe.removeClass('on cover leave');
+          }, 1100);
+        });
       });
-    });
+    };
+
+    if (document.readyState === 'complete') {
+      reveal();
+    } else {
+      $(window).on('load', reveal);
+      setTimeout(reveal, 1200);
+    }
   }
+
+  document.documentElement.classList.remove('wipe-in');
 
   $(window).on('pageshow', function (e) {
     if (e.originalEvent.persisted) {
@@ -96,7 +111,7 @@ $(function () {
     wipe.addClass('cover');
     setTimeout(function () {
       window.location.href = url;
-    }, 550);
+    }, 850);
   });
 
   let switching = false;
@@ -113,14 +128,6 @@ $(function () {
         switching = false;
       });
     });
-  });
-
-  $('a[href^="#"]').on('click', function (e) {
-    const target = $(this.getAttribute('href'));
-    if (!target.length) return;
-    e.preventDefault();
-    $('html, body').stop(true).animate({ scrollTop: target.offset().top - 70 }, 600);
-    target.attr('tabindex', '-1')[0].focus({ preventScroll: true });
   });
 
   const topBtn = $('<button type="button" class="back-top" aria-label="Back to top">&#8593;</button>').appendTo('body').hide();
