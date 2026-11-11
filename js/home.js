@@ -5,7 +5,6 @@ const GIF_SRC = 'media/1.gif';
 const GIF_MS = 1500;
 let playing = false;
 
-// download the GIF once in the background, so it plays at once on GitHub Pages
 new Image().src = GIF_SRC;
 
 btn.addEventListener('click', function (e) {
@@ -15,7 +14,6 @@ btn.addEventListener('click', function (e) {
   if (playing) return;
   playing = true;
 
-  // a new <img> restarts the GIF from the first frame without downloading it again
   const fresh = document.createElement('img');
   fresh.src = GIF_SRC;
   fresh.alt = '';

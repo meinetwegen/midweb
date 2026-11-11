@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="js/theme.js"></script>
+  <link rel="preload" as="image" href="images/school-bg.jpg">
+  <title>Sign Up | Phantom Thieves</title>
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&family=Kanit:ital,wght@1,600;1,700;1,800&display=swap" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+
+<header>
+  <nav class="navbar navbar-expand-md site-nav" aria-label="Main">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Phantom Thieves</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Toggle menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav ms-auto"><li class="nav-item"><a class="nav-link" href="index.html">Home</a></li><li class="nav-item"><a class="nav-link" href="team.html">Team</a></li><li class="nav-item"><a class="nav-link" href="heists.html">Details</a></li><li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li><li class="nav-item"><button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch to school life theme">School life</button></li></ul>
+      </div>
+    </div>
+  </nav>
+</header>
+<main>
+  <section class="page-title">
+    <div class="container">
+      <h1>JOIN THE PHANTOM THIEVES</h1>
+      <p class="lead">Create a demo account to keep your favorites, heist plan and quiz result.</p>
+    </div>
+  </section>
+
+  <section class="py-5">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-10 col-lg-6">
+          <div class="demo-note" role="note"><strong>Demo only.</strong> The account is saved in this browser (localStorage), not on a server. Do not use a real password.</div>
+          <div class="success-box" id="signup-success" role="status" hidden></div>
+          <form class="form-box" id="signup-form" novalidate>
+            <fieldset>
+              <legend class="section-heading">SIGN UP</legend>
+              <div class="mb-3">
+                <label class="form-label p5-label" for="su-name">Your name</label>
+                <input class="form-control p5-input" type="text" id="su-name" name="name" autocomplete="name" placeholder="e.g. Ren Amamiya" aria-describedby="su-name-error">
+                <div class="invalid-feedback" id="su-name-error"></div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label p5-label" for="su-email">Email</label>
+                <input class="form-control p5-input" type="email" id="su-email" name="email" autocomplete="email" placeholder="joker@metaverse.jp" aria-describedby="su-email-error">
+                <div class="invalid-feedback" id="su-email-error"></div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label p5-label" for="su-password">Password</label>
+                <input class="form-control p5-input" type="password" id="su-password" name="password" autocomplete="new-password" aria-describedby="su-password-hint su-password-error">
+                <div class="form-text p5-hint" id="su-password-hint">At least 8 characters, with a letter and a number.</div>
+                <div class="invalid-feedback" id="su-password-error"></div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label p5-label" for="su-confirm">Repeat the password</label>
+                <input class="form-control p5-input" type="password" id="su-confirm" name="confirm" autocomplete="new-password" aria-describedby="su-confirm-error">
+                <div class="invalid-feedback" id="su-confirm-error"></div>
+              </div>
+              <div class="form-check mb-3">
+                <input class="form-check-input" type="checkbox" id="su-agree" name="agree" aria-describedby="su-agree-error">
+                <label class="form-check-label p5-check-label" for="su-agree">I understand that this is a demo and I will not use a real password.</label>
+                <div class="invalid-feedback" id="su-agree-error"></div>
+              </div>
+              <button type="submit" class="btn btn-p5">CREATE ACCOUNT</button>
+            </fieldset>
+          </form>
+          <p class="auth-switch">Already have an account? <a class="p5-link-inline" href="login.html">Log in</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="site-footer"><div class="container footer-row"><p class="mb-0">Phantom Thieves fan site, 2026</p><p class="mb-0">Made by Alexandra and Zhannel</p></div><div class="container footer-credits"><p class="mb-0"><strong>Credits:</strong> Persona 5 characters, artwork and GIF &copy; ATLUS / SEGA, used only as fan material for a study project. Built with Bootstrap 5.3.3, jQuery 3.7.1 and Google Fonts (Barlow, Kanit).</p></div></footer>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/main.js"></script>
+<script src="js/validation.js"></script>
+<script src="js/signup.js"></script>
+</body>
+</html>
