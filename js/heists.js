@@ -21,7 +21,9 @@ const planAvg = document.getElementById('plan-avg');
 const planNote = document.getElementById('plan-note');
 const planClear = document.getElementById('plan-clear');
 
-let plan = [];
+let plan = getPlanIds().filter(function (id) {
+  return findPalace(id);
+});
 
 function matchesLevel(p) {
   if (palaceLevel.value === 'easy') return p.difficulty <= 2;
@@ -159,16 +161,20 @@ function updateSummary() {
   }
 }
 
-function addToPlan(id) {
+function addPlanItem(id, animate) {
   const p = findPalace(id);
-  plan.push(id);
 
   $('#plan-item-' + id).stop(true, true).remove();
   const item = document.createElement('li');
   item.id = 'plan-item-' + id;
   item.textContent = p.name + ' (' + p.days + ' days)';
   planList.appendChild(item);
-  $(item).hide().slideDown(250);
+  if (animate) $(item).hide().slideDown(250);
+}
+
+function addToPlan(id) {
+  plan.push(id);
+  addPlanItem(id, true);
 }
 
 function removeFromPlan(id) {
@@ -186,6 +192,7 @@ function togglePlan(id) {
   } else {
     removeFromPlan(id);
   }
+  savePlanIds(plan);
   updateSummary();
   refreshButtons();
 }
@@ -206,10 +213,14 @@ palaceReset.addEventListener('click', function () {
 
 planClear.addEventListener('click', function () {
   plan.slice().forEach(removeFromPlan);
+  savePlanIds(plan);
   updateSummary();
   refreshButtons();
 });
 
+plan.forEach(function (id) {
+  addPlanItem(id, false);
+});
 renderPalaces();
 updateSummary();
 
