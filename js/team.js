@@ -3,6 +3,7 @@ const searchInput = document.getElementById('member-search');
 const sortSelect = document.getElementById('member-sort');
 const resetBtn = document.getElementById('member-reset');
 const filterButtons = document.querySelectorAll('.filter-btn');
+const favCount = document.getElementById('fav-count');
 const countText = document.getElementById('team-count');
 const emptyBox = document.getElementById('team-empty');
 const emptyText = document.getElementById('team-empty-text');
@@ -28,6 +29,17 @@ function getVisibleMembers() {
   });
 
   return result;
+}
+
+function setFavoriteButton(button, name, on) {
+  button.textContent = on ? '\u2665 Saved to favorites' : '\u2661 Add to favorites';
+  button.setAttribute('aria-pressed', on);
+  button.setAttribute('aria-label', (on ? 'Remove ' : 'Add ') + name + (on ? ' from favorites' : ' to favorites'));
+  button.classList.toggle('is-fav', on);
+}
+
+function updateFavCount() {
+  favCount.textContent = getFavorites().length;
 }
 
 function createCard(m) {
@@ -63,7 +75,16 @@ function createCard(m) {
   bar.dataset.level = m.threat * 10;
   threat.appendChild(bar);
 
-  card.append(img, name, text, meta, threatLabel, threat);
+  const fav = document.createElement('button');
+  fav.type = 'button';
+  fav.className = 'fav-btn';
+  setFavoriteButton(fav, m.codename, isFavorite(m.codename));
+  fav.addEventListener('click', function () {
+    setFavoriteButton(fav, m.codename, toggleFavorite(m.codename));
+    updateFavCount();
+  });
+
+  card.append(img, name, text, meta, threatLabel, threat, fav);
   return card;
 }
 
@@ -129,6 +150,7 @@ resetBtn.addEventListener('click', function () {
   searchInput.focus();
 });
 
+updateFavCount();
 render();
 
 const pollForm = document.getElementById('poll-form');

@@ -616,3 +616,10 @@ html.wipe-in::after{content:"";position:fixed;inset:0;z-index:3000;background:va
 .poll-list li{margin-bottom:.7rem;font-size:1.1rem}
 .poll-bar{height:.8rem;margin-top:.25rem;background:#ccc;border-radius:999px;overflow:hidden}
 .poll-bar span{display:block;height:100%;background:var(--color-main);transition:width .4s ease}
+
+.fav-btn{align-self:flex-start;margin-top:.75rem;padding:.35rem .9rem;border:2px solid var(--color-main);border-radius:999px;background:#fff;color:var(--color-main);font-size:1rem;font-weight:700;transition:background-color .2s ease,color .2s ease,transform .2s ease}
+.fav-btn:hover,.fav-btn:focus-visible{background:var(--color-main);color:#fff;transform:translateY(-2px)}
+.fav-btn.is-fav{background:var(--color-main);color:#fff}
+.fav-btn.is-fav:hover,.fav-btn.is-fav:focus-visible{background:var(--color-bg)}
+.p5-link-inline{color:var(--color-main);font-weight:700}
+.p5-link-inline:hover{color:var(--color-bg)}
