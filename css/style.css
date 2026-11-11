@@ -30,10 +30,11 @@ img{max-width:100%}
 .site-nav .navbar-brand,.site-nav .nav-link{color:var(--color-alt)}
 .site-nav .navbar-brand{font-family:var(--font-heading);font-size:1.35rem}
 .site-nav .nav-link{position:relative;isolation:isolate;font-size:1.15rem;transition:color .25s ease}
+.site-nav .navbar-nav .nav-link{padding-left:1rem;padding-right:1rem}
 .site-nav .nav-link::before{
   content:"";
   position:absolute;
-  inset:.2rem .15rem;
+  inset:.2rem 0;
   background:var(--slash-bg);
   transform:skewX(-18deg) scaleX(0);
   transform-origin:left center;
