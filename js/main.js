@@ -68,29 +68,30 @@ $(function () {
     saveWipe(false);
     wipe.addClass('on cover no-anim');
 
-    let revealed = false;
-    const reveal = function () {
-      if (revealed) return;
-      revealed = true;
+    requestAnimationFrame(function () {
       requestAnimationFrame(function () {
-        requestAnimationFrame(function () {
-          wipe.removeClass('no-anim').addClass('leave');
-          setTimeout(function () {
-            wipe.removeClass('on cover leave');
-          }, 1100);
-        });
+        wipe.removeClass('no-anim').addClass('leave');
+        setTimeout(function () {
+          wipe.removeClass('on cover leave');
+        }, 700);
       });
-    };
-
-    if (document.readyState === 'complete') {
-      reveal();
-    } else {
-      $(window).on('load', reveal);
-      setTimeout(reveal, 1200);
-    }
+    });
   }
 
   document.documentElement.classList.remove('wipe-in');
+
+  const prefetched = {};
+  const prefetch = function (url) {
+    if (prefetched[url]) return;
+    prefetched[url] = true;
+    $('<link rel="prefetch">').attr('href', url).appendTo('head');
+  };
+
+  $(document).on('mouseenter focusin touchstart', 'a[href]', function (e) {
+    if (this.hostname === window.location.hostname && this.pathname !== window.location.pathname) {
+      prefetch(this.href);
+    }
+  });
 
   $(window).on('pageshow', function (e) {
     if (e.originalEvent.persisted) {
@@ -111,7 +112,7 @@ $(function () {
     wipe.addClass('cover');
     setTimeout(function () {
       window.location.href = url;
-    }, 850);
+    }, 400);
   });
 
   let switching = false;

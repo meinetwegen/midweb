@@ -30,6 +30,7 @@ img{max-width:100%}
 .site-nav .navbar-brand,.site-nav .nav-link{color:var(--color-alt)}
 .site-nav .navbar-brand{font-family:var(--font-heading);font-size:1.35rem}
 .site-nav .nav-link{position:relative;isolation:isolate;font-size:1.15rem;transition:color .25s ease}
+/* room for the slanted hover plate, so the first letter is never cut off */
 .site-nav .navbar-nav .nav-link{padding-left:1rem;padding-right:1rem}
 .site-nav .nav-link::before{
   content:"";
@@ -595,10 +596,10 @@ fieldset legend.section-heading{font-size:1.8rem;color:var(--color-main)}
   width:calc(100% + 400px);
   transform:translateX(-110%) skewX(-18deg);
   will-change:transform;
-  transition:transform .7s cubic-bezier(.6,0,.3,1);
+  transition:transform .35s cubic-bezier(.5,0,.25,1);
 }
 .wipe-dark{background:var(--color-bg)}
-.wipe-red{background:var(--color-main);transition-delay:.1s}
+.wipe-red{background:var(--color-main);transition-delay:.05s}
 .wipe.cover .wipe-dark,.wipe.cover .wipe-red{transform:translateX(0) skewX(-18deg)}
 .wipe.leave .wipe-dark,.wipe.leave .wipe-red{transform:translateX(110%) skewX(-18deg)}
 .wipe.no-anim .wipe-dark,.wipe.no-anim .wipe-red{transition:none}
