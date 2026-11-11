@@ -1,14 +1,3 @@
-const members = [
-  { codename: 'Joker', realName: 'Ren Amamiya', persona: 'Arsene', arcana: 'Fool', role: 'Leader', threat: 10, image: 'images/joker.jpg', description: 'The leader. A wild card who can use many Personas.' },
-  { codename: 'Skull', realName: 'Ryuji Sakamoto', persona: 'Captain Kidd', arcana: 'Chariot', role: 'Fighter', threat: 7, image: 'images/skull.jpg', description: 'Loud and loyal, always the first to charge in.' },
-  { codename: 'Mona', realName: 'Morgana', persona: 'Zorro', arcana: 'Magician', role: 'Support', threat: 6, image: 'images/mona.jpg', description: 'A talking cat who knows the secrets of the Metaverse.' },
-  { codename: 'Panther', realName: 'Ann Takamaki', persona: 'Carmen', arcana: 'Lovers', role: 'Fighter', threat: 7, image: 'images/panther.jpg', description: 'A model with a fiery temper and a strong sense of justice.' },
-  { codename: 'Fox', realName: 'Yusuke Kitagawa', persona: 'Goemon', arcana: 'Emperor', role: 'Fighter', threat: 8, image: 'images/fox.jpg', description: 'An artist who sees beauty in everything around him.' },
-  { codename: 'Queen', realName: 'Makoto Niijima', persona: 'Johanna', arcana: 'Priestess', role: 'Support', threat: 8, image: 'images/queen.jpg', description: 'The student council president and the team\'s strategist.' },
-  { codename: 'Oracle', realName: 'Futaba Sakura', persona: 'Necronomicon', arcana: 'Hermit', role: 'Support', threat: 6, image: 'images/oracle.jpg', description: 'A genius hacker who guides the team from far away.' },
-  { codename: 'Noir', realName: 'Haru Okumura', persona: 'Milady', arcana: 'Empress', role: 'Fighter', threat: 7, image: 'images/noir.jpg', description: 'A gentle gardener who fights with a sharp axe.' }
-];
-
 const grid = document.getElementById('roster-grid');
 const searchInput = document.getElementById('member-search');
 const sortSelect = document.getElementById('member-sort');

@@ -1,9 +1,9 @@
 const fankit = [
   { id: 1, title: 'Full team poster', type: 'Wallpaper', file: 'images/full_team.jpg', size: 573, alt: 'All Phantom Thieves posing together' },
-  { id: 2, title: 'Star pattern', type: 'Wallpaper', file: 'images/Background.jpg', size: 1694, alt: 'Dark pattern of grey stars' },
-  { id: 3, title: 'Kamoshida\'s Palace', type: 'Wallpaper', file: 'images/kamoshida-palace.jpg', size: 697, alt: 'Castle of Kamoshida\'s Palace under a purple sky' },
-  { id: 4, title: 'Bank of Gluttony', type: 'Wallpaper', file: 'images/bank-of-gluttony.jpg', size: 1048, alt: 'Giant armored vault of the Bank of Gluttony' },
-  { id: 5, title: 'Museum of Vanity', type: 'Wallpaper', file: 'images/museum-of-vanity.jpg', size: 569, alt: 'Gallery of the Museum of Vanity' },
+  { id: 2, title: 'Star pattern', type: 'Wallpaper', file: 'images/Background.jpg', size: 247, alt: 'Dark pattern of grey stars' },
+  { id: 3, title: 'Kamoshida\'s Palace', type: 'Wallpaper', file: 'images/kamoshida-palace.jpg', size: 99, alt: 'Castle of Kamoshida\'s Palace under a purple sky' },
+  { id: 4, title: 'Bank of Gluttony', type: 'Wallpaper', file: 'images/bank-of-gluttony.jpg', size: 190, alt: 'Giant armored vault of the Bank of Gluttony' },
+  { id: 5, title: 'Museum of Vanity', type: 'Wallpaper', file: 'images/museum-of-vanity.jpg', size: 103, alt: 'Gallery of the Museum of Vanity' },
   { id: 6, title: 'Phantom emblem', type: 'Avatar', file: 'images/emblem.jpg', size: 40, alt: 'Red and black mask emblem' },
   { id: 7, title: 'Joker', type: 'Avatar', file: 'images/joker.jpg', size: 59, alt: 'Portrait of Joker' },
   { id: 8, title: 'Panther', type: 'Avatar', file: 'images/panther.jpg', size: 223, alt: 'Portrait of Panther' }
