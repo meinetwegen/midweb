@@ -24,9 +24,11 @@ function saveTheme(theme) {
 }
 
 function applyTheme(theme) {
-  const next = theme === 'school' ? 'Phantom life' : 'School life';
+  const toSchool = theme !== 'school';
   document.documentElement.dataset.theme = theme;
-  $('#theme-toggle').text(next).attr('aria-label', 'Switch to ' + next.toLowerCase() + ' theme');
+  $('#theme-toggle')
+    .text(toSchool ? '\u2600 School life' : '\u263E Phantom life')
+    .attr('aria-label', toSchool ? 'Switch to light mode (School life)' : 'Switch to dark mode (Phantom life)');
 }
 
 function canWipe(link, e) {
@@ -73,7 +75,7 @@ $(function () {
         wipe.removeClass('no-anim').addClass('leave');
         setTimeout(function () {
           wipe.removeClass('on cover leave');
-        }, 700);
+        }, 500);
       });
     });
   }
