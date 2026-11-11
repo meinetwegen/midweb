@@ -623,3 +623,5 @@ html.wipe-in::after{content:"";position:fixed;inset:0;z-index:3000;background:va
 .fav-btn.is-fav:hover,.fav-btn.is-fav:focus-visible{background:var(--color-bg)}
 .p5-link-inline{color:var(--color-main);font-weight:700}
 .p5-link-inline:hover{color:var(--color-bg)}
+
+.quiz-best{min-height:1.5rem;margin-bottom:.5rem;color:var(--color-main);font-weight:700}

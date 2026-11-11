@@ -47,6 +47,7 @@ const questions = [
 const quizStatus = document.getElementById('quiz-status');
 const quizQuestion = document.getElementById('quiz-question');
 const quizOptions = document.getElementById('quiz-options');
+const quizBest = document.getElementById('quiz-best');
 const quizFeedback = document.getElementById('quiz-feedback');
 const quizNext = document.getElementById('quiz-next');
 const quizRestart = document.getElementById('quiz-restart');
@@ -111,8 +112,15 @@ function getRank(points) {
   return 'Rookie Thief';
 }
 
+function showBest() {
+  const best = getQuizBest();
+  quizBest.textContent = best ? 'Your best result: ' + best.score + ' of ' + best.total : '';
+}
+
 function showResult() {
   const percent = Math.round((score / questions.length) * 100);
+  saveQuizResult(score, questions.length);
+  showBest();
   quizStatus.textContent = 'Quiz finished';
   quizQuestion.textContent = 'You scored ' + score + ' of ' + questions.length + ' (' + percent + '%)';
   quizOptions.innerHTML = '';
@@ -147,6 +155,7 @@ quizBox.addEventListener('keydown', function (e) {
 });
 
 showQuestion();
+showBest();
 
 $(function () {
   $('.faq-btn').on('click', function () {
