@@ -29,9 +29,6 @@ const signupRules = {
     if (!f.value) return 'Please repeat the password.';
     if (f.value !== suPassword.value) return 'The passwords do not match.';
     return '';
-  },
-  'su-agree': function (f) {
-    return f.checked ? '' : 'Please confirm that you understand this is a demo.';
   }
 };
 
